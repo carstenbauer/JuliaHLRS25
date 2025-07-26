@@ -1,8 +1,8 @@
-# JuliaHLRS24
+# JuliaHLRS25
 
-A four-day workshop that will take place in Stuttgart at the [High Performance Computing Center Stuttgart (HLRS)](https://www.hlrs.de/) in September 2024.
+A four-day workshop that will take place in Stuttgart at the [High Performance Computing Center Stuttgart (HLRS)](https://www.hlrs.de/) in September 2025.
 
-**Course page:** https://www.hlrs.de/training/2024/julia   
+**Course page:** https://www.hlrs.de/training/2025/julia   
 **Trainer:** [Dr. Carsten Bauer](https://github.com/carstenbauer)
 
 <!-- <div style="float: left">
@@ -16,7 +16,7 @@ A four-day workshop that will take place in Stuttgart at the [High Performance C
 
 ## Tentative schedule
 
-<a href="https://github.com/carstenbauer/JuliaHLRS24/raw/main/orga/timetable.pdf"><img src="https://github.com/carstenbauer/JuliaHLRS24/raw/main/orga/timetable.png" width=720px></a>
+<a href="https://github.com/carstenbauer/JuliaHLRS25/raw/main/orga/timetable.pdf"><img src="https://github.com/carstenbauer/JuliaHLRS25/raw/main/orga/timetable.png" width=720px></a>
 
 ## Optional: Preparing for the workshop (if you bring your own device)
 
@@ -25,7 +25,7 @@ A four-day workshop that will take place in Stuttgart at the [High Performance C
 ### Software
 
 What you need:
-  * [Julia 1.10](https://julialang.org/)
+  * [Julia 1.11](https://julialang.org/)
     * I recommend to use [juliaup](https://github.com/JuliaLang/juliaup) to install and manage Julia versions!
     * `curl -fsSL https://install.julialang.org | sh`
   * [Jupyter Lab](https://jupyter.org/)
@@ -37,7 +37,7 @@ What you need:
 To download the workshop materials (this GitHub repository) and to install all Julia dependencies, run
 
 ```bash
-git clone https://github.com/carstenbauer/JuliaHLRS24
+git clone https://github.com/carstenbauer/JuliaHLRS25
 cd JuliaHLRS24
 julia install.jl
 ```
@@ -53,4 +53,4 @@ julia install.jl
 
 <!-- ## Static HTML
 
-In case you don't have Jupyter and just want to follow along: The folder [`HTML/`](https://github.com/carstenbauer/JuliaHLRS23/tree/main/HTML) contains all the main content (jupyter notebooks) in static HTML format. -->
+In case you don't have Jupyter and just want to follow along: The folder [`HTML/`](https://github.com/carstenbauer/JuliaHLRS25/tree/main/HTML) contains all the main content (jupyter notebooks) in static HTML format. -->
