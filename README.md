@@ -38,7 +38,7 @@ To download the workshop materials (this GitHub repository) and to install all J
 
 ```bash
 git clone https://github.com/carstenbauer/JuliaHLRS25
-cd JuliaHLRS24
+cd JuliaHLRS25
 julia install.jl
 ```
 
