@@ -1179,11 +1179,11 @@ uuid = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
 version = "0.3.28"
 
 [[deps.IJulia]]
-deps = ["Base64", "Conda", "Dates", "InteractiveUtils", "JSON", "Logging", "Markdown", "Pkg", "Printf", "REPL", "Random", "SHA", "SoftGlobalScope", "UUIDs", "ZMQ"]
-git-tree-sha1 = "fe0a577aa6e9675224ca18b3ae7fdd8a27cd1ea6"
+deps = ["Base64", "Conda", "Dates", "InteractiveUtils", "JSON", "Logging", "Markdown", "Pkg", "PrecompileTools", "Printf", "REPL", "Random", "SHA", "Sockets", "UUIDs", "ZMQ"]
+git-tree-sha1 = "2004107fe26a14a37c7bd9b51c006809b177b913"
 pinned = true
 uuid = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
-version = "1.29.1"
+version = "1.30.0"
 
 [[deps.IfElse]]
 git-tree-sha1 = "debdd00ffef04665ccbb3e150747a77560e8fad1"
@@ -2886,13 +2886,6 @@ version = "1.1.0"
 pinned = true
 uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
 version = "1.11.0"
-
-[[deps.SoftGlobalScope]]
-deps = ["REPL"]
-git-tree-sha1 = "986ec2b6162ccb95de5892ed17832f95badf770c"
-pinned = true
-uuid = "b85f4697-e234-5449-a836-ec8e2f98b302"
-version = "1.1.0"
 
 [[deps.SortingAlgorithms]]
 deps = ["DataStructures"]
