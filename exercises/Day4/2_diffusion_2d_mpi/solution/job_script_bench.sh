@@ -21,7 +21,7 @@ cd $WORKDIR
 
 # OpenMPI settings
 export OMPI_MCA_mpi_cuda_support=0
-export OMPI_MCA_btl_openib_warn_no_device_params_found=0
+export OMPI_MCA_mca_component_show_load_errors=0
 
 # run MPI code
 for i in 1 2 4 8 9 12

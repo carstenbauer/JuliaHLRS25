@@ -20,7 +20,7 @@ cd $WORKDIR
 
 # OpenMPI settings
 export OMPI_MCA_mpi_cuda_support=0
-export OMPI_MCA_btl_openib_warn_no_device_params_found=0
+export OMPI_MCA_mca_component_show_load_errors=0
 
 # run MPI code
 mpiexecjl -n 4 julia --project diffusion_2d_mpi.jl
