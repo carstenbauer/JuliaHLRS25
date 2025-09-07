@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N diff2dmpi
-#PBS -l select=1:node_type=skl:ncpus=4:mem=4gb
+#PBS -l select=1:node_type=skl:ncpus=4:mem=4gb:mpiprocs=4
 #PBS -l walltime=00:10:00
 #PBS -j oe
 #PBS -o job_script.out
@@ -12,9 +12,8 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
     # change to the directory that the job was submitted from ...
     WORKDIR=$PBS_O_WORKDIR
     # ... and load the module(s)
-    ml julia
-    ml nvidia/nvhpc
-    ml compiler/nvidia
+    ml juliahpc
+    ml mpi/openmpi
 fi
 cd $WORKDIR
 

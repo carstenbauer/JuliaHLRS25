@@ -6,9 +6,8 @@
 #PBS -o job_script_bench_multinode.out
 #PBS -q smp
 
-ml julia
-ml nvidia/nvhpc
-ml compiler/nvidia
+ml juliahpc
+ml mpi/openmpi
 cd $PBS_O_WORKDIR
 
 # OpenMPI settings
