@@ -10,6 +10,6 @@ then
 fi
 
 # install workshop environment (includes LIKWID)
-git clone https://github.com/carstenbauer/JuliaHLRS24
-cd JuliaHLRS24
+git clone https://github.com/carstenbauer/JuliaHLRS25
+cd JuliaHLRS25
 julia install.jl full
