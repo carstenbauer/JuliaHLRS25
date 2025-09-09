@@ -3,7 +3,7 @@ using PrettyTables
 using Random
 using ThreadPinning
 using Base.Threads
-using ChunkSplitters
+using OhMyThreads
 using Plots
 
 if nthreads() != ncores()
@@ -15,8 +15,9 @@ const ncores_per_numa   = count(i->!ishyperthread(i), numa(1))
 const ncores_per_socket = count(i->!ishyperthread(i), socket(1))
 
 function axpy_static_chunks!(y, a, x; chunks)
-    @threads :static for (idcs, tid) in chunks   # iterating over chunks (i.e. tasks/threads)
-        @simd for i in idcs                      # each thread processes the assigned range of idices
+    @tasks for idcs in chunks
+        @set scheduler=:static
+        @simd for i in idcs
             @inbounds y[i] = a * x[i] + y[i]
         end
     end
@@ -31,7 +32,8 @@ function generate_input_data_chunks(; N, dtype, parallel=false, chunks, kwargs..
         rand!(x)
         rand!(y)
     else
-        @threads :static for (idcs, tid) in chunks
+        @tasks for idcs in chunks
+            @set scheduler=:static
             @inbounds for i in idcs
                 x[i] = rand()
                 y[i] = rand()
@@ -43,9 +45,9 @@ end
 
 default_N(dtype) = floor(Int, (1/8 * Sys.total_memory()) / (2 * sizeof(dtype)))
 
-function measure_perf_chunks(; dtype=Float64, N=default_N(dtype), numthreads=Threads.nthreads(), kwargs...)
+function measure_perf_chunks(; dtype=Float64, N=default_N(dtype), numthreads=nthreads(), kwargs...)
     # input data
-    cs = chunks(1:N, numthreads)
+    cs = index_chunks(1:N; n=numthreads)
     a, x, y = generate_input_data_chunks(; N, dtype, chunks=cs, kwargs...)
 
     # time measurement

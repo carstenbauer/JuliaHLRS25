@@ -1,6 +1,7 @@
 # 2D linear diffusion solver - multithreading
 using Printf
 using Plots
+using OhMyThreads
 include(joinpath(@__DIR__, "shared.jl"))
 
 # convenience macros simply to avoid writing nested finite-difference expression
@@ -8,18 +9,15 @@ macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(dx))) end
 macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(dy))) end
 
 function diffusion_step!(params, C2, C)
-    (; dx, dy, dt, D, static) = params
-    if static
-        #
-        # TODO: Copy the double-loop from the diffusion_step! function
-        #       in diffusion_2d_serial and multithread the outer one
-        #       using static scheduling.
-        #
-    else
-        #
-        # TODO: Do the same as above but use the dynamic scheduler.
-        #
-    end
+    (; dx, dy, dt, D, sched) = params
+    #
+    # TODO: Copy the double-loop from the diffusion_step! function
+    #       in diffusion_2d_serial and multithread the outer one.
+    #       Use `@tasks` and `@set scheduler = sched` to choose
+    #       either the dynamic or static scheduler.
+    #       (sched will be either :static or :dynamic)
+    # 
+    #
     return nothing
 end
 

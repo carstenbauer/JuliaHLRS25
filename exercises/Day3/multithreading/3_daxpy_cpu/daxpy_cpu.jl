@@ -3,6 +3,7 @@ using PrettyTables
 using Random
 using ThreadPinning
 using Base.Threads
+using OhMyThreads
 
 const ncores_per_numa   = count(i->!ishyperthread(i), numa(1))
 const desired_nthreads  = max(ncores_per_numa, nnuma())
@@ -15,7 +16,7 @@ end
 function axpy_kernel_dynamic!(y, a, x)
     #
     # TODO: Implement the AXPY kernel by looping over all elements of x/y.
-    #       Parallelize the loop with `@threads :dynamic` (default).
+    #       Parallelize the loop with `@tasks`.
     #       Use `@inbounds` to elide bound checks.
     #
     return nothing
@@ -23,8 +24,9 @@ end
 
 function axpy_kernel_static!(y, a, x)
     #
-    # TODO: Implement the AXPY kernel (similar to above) but this time use `@threads :static`.
-    #       Use `@inbounds` to elide bound checks.
+    # TODO: Implement the AXPY kernel (similar to above) but this time
+    #       use the static scheduler, i.e. `@set scheduler=:static`.
+    #       Moreover, use `@inbounds` to elide bound checks.
     #
     return nothing
 end
@@ -37,17 +39,13 @@ function generate_input_data(; N, dtype, parallel=false, static=false, kwargs...
         rand!(x)
         rand!(y)
     else
-        if !static
-            #
-            # TODO: Initialize `x` and `y` in parallel. Use `@threads :dynamic for ...`
-            #       to write a random number of the correct datatype (`rand(dtype)`)
-            #       into each array slot.
-            #
-        else
-            #
-            # TODO: Initialize `x` and `y` in parallel. Same as above but this time use
-            #       static scheduling, i.e. `@threads :static for ...`.
-            #
+        sched = static ? :static : :dynamic
+        #
+        # TODO: Parallelize the following initialization. Use `@tasks` and `@set scheduler=sched`.
+        #
+        for i in eachindex(x)
+            x[i] = rand(dtype)
+            y[i] = rand(dtype)
         end
     end
     return a,x,y
@@ -61,9 +59,9 @@ function measure_perf(; dtype=Float64, N=default_N(dtype), static=true, kwargs..
 
     # time measurement
     if static
-        t = @belapsed axpy_kernel_static!($y,$a,$x) evals = 4 samples = 5
+        t = @belapsed axpy_kernel_static!($y,$a,$x) evals = 5 samples = 10
     else
-        t = @belapsed axpy_kernel_dynamic!($y,$a,$x) evals = 4 samples = 5
+        t = @belapsed axpy_kernel_dynamic!($y,$a,$x) evals = 5 samples = 10
     end
 
     # compute memory bandwidth and flops
@@ -77,7 +75,7 @@ end
 
 function main()
     for static in (false, true)
-        println("\nAXPY with @threads ", static ? ":static" : ":dynamic")
+        println("\nAXPY with scheduler = ", static ? ":static" : ":dynamic")
         membw_results = Matrix{Float64}(undef, 3, 2)
         for (i, pin) in enumerate((:cores, :sockets, :numa))
             for (j, parallel) in enumerate((false, true))

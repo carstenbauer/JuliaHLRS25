@@ -1,6 +1,7 @@
 # 2D linear diffusion solver - multithreading
 using Printf
 using Plots
+using OhMyThreads
 include(joinpath(@__DIR__, "shared.jl"))
 
 # convenience macros simply to avoid writing nested finite-difference expression
@@ -8,28 +9,20 @@ macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(dx))) end
 macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(dy))) end
 
 function diffusion_step!(params, C2, C)
-    (; dx, dy, dt, D, static) = params
-    if static
-        #
-        # TODO: Copy the double-loop from the diffusion_step! function
-        #       in diffusion_2d_serial and multithread the outer one
-        #       using static scheduling.
-        #
-        Threads.@threads :static for iy in 1:size(C, 2)-2
-            for ix in 1:size(C, 1)-2
-                @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(dx) +
-                                                                 (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(dy))
-            end
-        end
-    else
-        #
-        # TODO: Do the same as above but use the dynamic scheduler.
-        #
-        Threads.@threads :dynamic for iy in 1:size(C, 2)-2
-            for ix in 1:size(C, 1)-2
-                @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(dx) +
-                                                                 (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(dy))
-            end
+    (; dx, dy, dt, D, sched) = params
+    #
+    # TODO: Copy the double-loop from the diffusion_step! function
+    #       in diffusion_2d_serial and multithread the outer one.
+    #       Use `@tasks` and `@set scheduler = sched` to choose
+    #       either the dynamic or static scheduler.
+    #       (sched will be either :static or :dynamic)
+    # 
+    #
+    @tasks for iy in 1:size(C, 2)-2
+        @set scheduler = sched
+        for ix in 1:size(C, 1)-2
+            @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(dx) +
+                                                             (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(dy))
         end
     end
     return nothing

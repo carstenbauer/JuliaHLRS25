@@ -4,7 +4,7 @@
 
 **Learnings:** multithreading a simple algorithm, uniform and non-uniform workload, nested multithreading
 
-In this exercise, you will parallelize the famous Monte Carlo algorithm that can produce the value of π=3.141... with desirable precision. Specifically, you will parallelize the algorithm using Julia's multithreading tools (e.g. `@threads` and `@spawn`).
+In this exercise, you will parallelize the famous Monte Carlo algorithm that can produce the value of π=3.141... with desirable precision. Specifically, you will parallelize the algorithm using Julia's multithreading tools (e.g. `@spawn`).
 
 ### `2_diffusion_2d_multithreading`
 
