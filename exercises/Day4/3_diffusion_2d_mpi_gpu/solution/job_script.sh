@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N diff2dmultigpu
-#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb
+#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb:mpiprocs=4
 #PBS -l walltime=00:10:00
 #PBS -j oe
 #PBS -o job_script.out
