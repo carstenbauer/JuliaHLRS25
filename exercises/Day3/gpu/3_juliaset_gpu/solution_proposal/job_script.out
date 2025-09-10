@@ -1,11 +1,3 @@
-Please have in mind: By loading this module, the OpenMP library shipped with
-the Nvidia HPC SDK will be used. This might have implications for
-OpenMP-parallel code on the CPU as well, cf.
-https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
-Please have in mind: By loading this module, the OpenMP library shipped with
-the Nvidia HPC SDK will be used. This might have implications for
-OpenMP-parallel code on the CPU as well, cf.
-https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
 Prologue: PBS assigned coreids = [1, 2, 3, 4].
 Prologue: Will use GPU 1 (9f6c344e-aafb-a6f0-93fd-6146659179de).
 CPU and GPU results match: true
