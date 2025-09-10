@@ -12,7 +12,7 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
     # change to the directory that the job was submitted from ...
     WORKDIR=$PBS_O_WORKDIR
     # ... and load the module(s)
-    ml julia
+    ml juliahpc
 fi
 cd $WORKDIR
 
