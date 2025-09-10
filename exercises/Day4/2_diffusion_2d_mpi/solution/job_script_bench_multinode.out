@@ -1,35 +1,35 @@
 
 
 #### Run nranks=1
-[n002002:592558] Rank 0 bound to package[0][core:0]
+[n002302:85584] Rank 0 bound to package[0][core:0]
 nprocs = 1, dims = (1, 1)
-Time = 1.0484e+00 s, T_eff = 15.84 GB/s 
+Time = 9.4021e-01 s, T_eff = 17.67 GB/s 
 
 
 #### Run nranks=2
-[n002002:592580] Rank 0 bound to package[0][core:0]
-[n002002:592580] Rank 1 bound to package[1][core:20]
+[n002302:85594] Rank 0 bound to package[0][core:0]
+[n002302:85594] Rank 1 bound to package[1][core:20]
 nprocs = 2, dims = (2, 1)
-Time = 1.0435e+00 s, T_eff = 15.92 GB/s 
+Time = 9.7833e-01 s, T_eff = 16.98 GB/s 
 
 
 #### Run nranks=4
-[n002002:592593] Rank 0 bound to package[0][core:0]
-[n002002:592593] Rank 1 bound to package[1][core:20]
-[n002301:496403] Rank 2 bound to package[0][core:0]
-[n002301:496403] Rank 3 bound to package[1][core:20]
+[n002302:85608] Rank 0 bound to package[0][core:0]
+[n002302:85608] Rank 1 bound to package[1][core:20]
+[n002402:85137] Rank 2 bound to package[0][core:0]
+[n002402:85137] Rank 3 bound to package[1][core:20]
 nprocs = 4, dims = (2, 2)
-Time = 1.1038e+00 s, T_eff = 15.05 GB/s 
+Time = 9.8141e-01 s, T_eff = 16.92 GB/s 
 
 
 #### Run nranks=8
-[n002002:592607] Rank 0 bound to package[0][core:0]
-[n002002:592607] Rank 1 bound to package[1][core:20]
-[n002301:496558] Rank 2 bound to package[0][core:0]
-[n002301:496558] Rank 3 bound to package[1][core:20]
-[n002401:495928] Rank 4 bound to package[0][core:0]
-[n002001:497703] Rank 6 bound to package[0][core:0]
-[n002401:495928] Rank 5 bound to package[1][core:20]
-[n002001:497703] Rank 7 bound to package[1][core:20]
+[n002302:85647] Rank 0 bound to package[0][core:0]
+[n002302:85647] Rank 1 bound to package[1][core:20]
+[n002402:85313] Rank 2 bound to package[0][core:0]
+[n002402:85313] Rank 3 bound to package[1][core:20]
+[n002101:85022] Rank 6 bound to package[0][core:0]
+[n002101:85022] Rank 7 bound to package[1][core:20]
+[n002102:85322] Rank 4 bound to package[0][core:0]
+[n002102:85322] Rank 5 bound to package[1][core:20]
 nprocs = 8, dims = (4, 2)
-Time = 1.0767e+00 s, T_eff = 15.43 GB/s 
+Time = 1.0757e+00 s, T_eff = 15.44 GB/s 

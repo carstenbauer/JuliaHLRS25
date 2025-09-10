@@ -2,29 +2,29 @@
 
 #### Run nranks=1
 nprocs = 1, dims = (1, 1)
-Time = 1.1084e+00 s, T_eff = 14.98 GB/s 
+Time = 9.7676e-01 s, T_eff = 17.00 GB/s 
 
 
 #### Run nranks=2
 nprocs = 2, dims = (2, 1)
-Time = 1.0438e+00 s, T_eff = 15.91 GB/s 
+Time = 1.0662e+00 s, T_eff = 15.58 GB/s 
 
 
 #### Run nranks=4
 nprocs = 4, dims = (2, 2)
-Time = 1.2552e+00 s, T_eff = 13.23 GB/s 
+Time = 1.2220e+00 s, T_eff = 13.59 GB/s 
 
 
 #### Run nranks=8
 nprocs = 8, dims = (4, 2)
-Time = 1.7274e+00 s, T_eff = 9.62 GB/s 
+Time = 1.6426e+00 s, T_eff = 10.11 GB/s 
 
 
 #### Run nranks=9
 nprocs = 9, dims = (3, 3)
-Time = 2.0058e+00 s, T_eff = 8.28 GB/s 
+Time = 1.7816e+00 s, T_eff = 9.32 GB/s 
 
 
 #### Run nranks=12
 nprocs = 12, dims = (4, 3)
-Time = 1.9953e+00 s, T_eff = 8.32 GB/s 
+Time = 2.1719e+00 s, T_eff = 7.65 GB/s 
