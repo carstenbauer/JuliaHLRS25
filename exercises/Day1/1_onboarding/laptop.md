@@ -32,7 +32,7 @@ We will be using VS Code below but you can also use a regular terminal if you fe
 
 ## BONUS: Using the Julia VSCode extension
 
-While manually starting Julia via `julia --project` in the terminal is fine, you won't get any special integration with VS Code this way (e.g. plots won't show up in the VS Code plot pane, no in-line evaluation, etc.). For all of these things to work, you need to use the Julia extension.
+While manually starting Julia via `julia --project` in the terminal is fine, it doesn't use VS Code to its full potential: It simply gives you an editor and a Julia REPL. What it doesn't give you is any connection between the two. That is, VS Code essentially has no clue about Julia. For this reason, Julia plots won't show up in the VS Code plot pane, you won't be able to evaluate Julia code in-line in the editor, and you won't be able to use tools like the integrated profiler, debugger, and so on. For all of these things to work, you need to use the Julia VS Code extension.
 
 We have already installed the Julia extension on the laptops.
 
@@ -59,3 +59,4 @@ Here are a few more commands that could be useful for controlling the integrated
 * Restart integrated Julia REPL: `Alt-J Alt-R`
 
 You're done 🎉. Feel free to play around further and then close VS Code.
+
