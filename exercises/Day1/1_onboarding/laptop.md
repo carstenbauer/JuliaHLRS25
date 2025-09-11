@@ -10,14 +10,14 @@ We will be using VS Code below but you can also use a regular terminal if you fe
  
 2. Open a terminal in VSCode by either pressing `CTRL + ~` or running the command `Terminal: Create New Terminal`.
 
-2. In the terminal in the bottom, navigate to the workshop materials: `cd ~/JuliaHLRS24`.
+2. In the terminal in the bottom, navigate to the workshop materials: `cd ~/JuliaHLRS25`.
  
 4. Execute `code -r .` to tell the VS Code session to switch into the active folder (such that you see the workshop directory in the file tree in the left pane).
 
 ## Using Julia
     
-1. Inside of the workshop directory `~/JuliaHLRS24` (you should still be there), start Julia with `julia --project`.
-    - The `--project` flag is important and tells Julia to use the local Julia environment of the workshop. You can use it anywhere inside of `JuliaHLRS24`, including its subdirectories.
+1. Inside of the workshop directory `~/JuliaHLRS25` (you should still be there), start Julia with `julia --project`.
+    - The `--project` flag is important and tells Julia to use the local Julia environment of the workshop. You can use it anywhere inside of `JuliaHLRS25`, including its subdirectories.
 
 3. The following Julia commands should work now:
 
