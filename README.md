@@ -29,7 +29,7 @@ What you need:
     * I recommend to use [juliaup](https://github.com/JuliaLang/juliaup) to install and manage Julia versions!
     * `curl -fsSL https://install.julialang.org | sh`
   * [Jupyter Lab](https://jupyter.org/)
-  * (Optional but recommended: [Visual Studio Code](https://code.visualstudio.com/))
+  * [Visual Studio Code](https://code.visualstudio.com/)
   * (Optional: [LIKWID](https://github.com/RRZE-HPC/likwid))
 
 ### Workshop materials & Julia dependencies
