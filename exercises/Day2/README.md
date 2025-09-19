@@ -8,7 +8,7 @@ Given an examplatory code snippet, your task will be to optimize it (as much as 
 
 ### `2_cache_bandwidths`
 
-By means of a Schoenauer triad kernel, you'll try to measure the effect of the memory hierarchy (i.e. caches) on performance for a CPU-core in a Noctua 2 compute node.
+By means of a Schoenauer triad kernel, you'll try to measure the effect of the memory hierarchy (i.e. caches) on performance for a CPU-core in a compute node.
 
 ### `3_dense_matmul`
 
